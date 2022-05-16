@@ -24,8 +24,7 @@ public class AWSTimeStreamTest {
                 .build();
     }
 
-    @Test
-    public void testTimestream(){
+    private void postTimeData(){
 
         AmazonTimestreamWrite amazonTimestreamWrite = buildWriteClient();
 
@@ -76,7 +75,14 @@ public class AWSTimeStreamTest {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+    }
 
+    @Test
+    public void testTimestream() throws InterruptedException {
 
+        for(int i = 0; i < 100; i++){
+            postTimeData();
+            Thread.sleep(100);
+        }
     }
 }
