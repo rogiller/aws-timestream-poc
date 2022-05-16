@@ -42,7 +42,7 @@ public class AWSTimeStreamTest {
         List<Dimension> dimensions = new ArrayList<>();
         final Dimension region = new Dimension().withName("region").withValue("us-east-2");
         final Dimension hostname = new Dimension().withName("hostname").withValue("roger-localhost");
-        final Dimension tenant = new Dimension().withName("tenant").withValue("roger");
+        final Dimension tenant = new Dimension().withName("tenant").withValue("roger2");
 
         dimensions.add(region);
         dimensions.add(hostname);
