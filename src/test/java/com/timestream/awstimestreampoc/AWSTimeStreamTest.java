@@ -11,6 +11,8 @@ import java.util.List;
 
 public class AWSTimeStreamTest {
 
+    private double transactionTimeMillis = 100;
+
     private static AmazonTimestreamWrite buildWriteClient() {
         final ClientConfiguration clientConfiguration = new ClientConfiguration()
                 .withMaxConnections(5000)
@@ -41,12 +43,14 @@ public class AWSTimeStreamTest {
 
         List<Dimension> dimensions = new ArrayList<>();
         final Dimension region = new Dimension().withName("region").withValue("us-east-2");
-        final Dimension hostname = new Dimension().withName("hostname").withValue("roger-localhost");
-        final Dimension tenant = new Dimension().withName("tenant").withValue("roger2");
+        final Dimension hostname = new Dimension().withName("hostname").withValue("ohio-ec2-06");
+        final Dimension tenant = new Dimension().withName("tenant").withValue("mgl");
+        final Dimension apiEndpoint = new Dimension().withName("apiEndpoint").withValue("SerialUnitController.updateSerialUnits");
 
         dimensions.add(region);
         dimensions.add(hostname);
         dimensions.add(tenant);
+        dimensions.add(apiEndpoint);
 
         Record transactionTime = new Record()
                 .withDimensions(dimensions)
